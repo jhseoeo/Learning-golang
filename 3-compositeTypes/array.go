@@ -3,7 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	var arr [3]int // declaration
+	var arr [3]int // array declaration
+	fmt.Println(arr)
 
 	fmt.Println("---------------------------")
 
@@ -28,12 +29,12 @@ func main() {
 
 	fmt.Println("---------------------------")
 
-	fmt.Println(len(z))
+	fmt.Println(len(z)) // get size(length) of array
 	fmt.Println(len(multidimentional[1]))
 	fmt.Println(len([...]int{123, 456, 789}))
 
 	fmt.Println("---------------------------")
 
-	// var size int = 5
-	// var arr = [size]int{1, 2, 3} // it occurs an error
+	// var size int = 5				// can not specify size of array with variables.
+	// var arr = [size]int{1, 2, 3} // it occurs an error.
 }

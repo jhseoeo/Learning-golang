@@ -3,9 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	var slice []int // declaration
+	var slice []int // slice declaration
 
-    fmt.Println("---------------------------")
+	fmt.Println("---------------------------")
 
 	// declare  with literal
 	var x = []int{1, 2, 3}
@@ -19,17 +19,17 @@ func main() {
 	x[2] = 10
 	fmt.Println(x[2]) // indexing by bracket
 
-    fmt.Println("---------------------------")
-		
+	fmt.Println("---------------------------")
+
 	var multidimentional = [][]int{{1, 2, 3}, {1, 2, 3}} // multidimetional slice
 	fmt.Println(multidimentional)
 
-    fmt.Println("---------------------------")
+	fmt.Println("---------------------------")
 
-	fmt.Println(slice) // empty slice is equal to  
+	fmt.Println(slice)        // empty slice is equal to
 	fmt.Println(slice == nil) // comparation between two slices occurs error; only possible comparation is the one between slice and nil
 
-    fmt.Println("---------------------------")
+	fmt.Println("---------------------------")
 
 	// capacity grows as it gets appended
 	slice = append(slice, 10)
@@ -38,11 +38,11 @@ func main() {
 	fmt.Println(slice, len(slice), cap(slice))
 	slice = append(slice, x...)
 	fmt.Println(slice, len(slice), cap(slice))
-	// append(slice, x...) it occurs an error
+	// append(slice, x...) => it occurs an error (append() returns an slice that element appended.)
 
-    fmt.Println("---------------------------")
+	fmt.Println("---------------------------")
 
-	initialized_capacity := make([]int, 0, 5) // type, length, capacity
+	initialized_capacity := make([]int, 0, 5) // make(type, length, capacity)
 	// initialized_capacity := make([]int, 6, 5) // it occurs an error (length > capacity)
 	initialized_capacity = append(initialized_capacity, 5, 6, 7, 8)
 	fmt.Println(initialized_capacity, len(initialized_capacity), cap(initialized_capacity))

@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	var flag bool; // indicates true
+	var flag bool // initial value is false
 	var isAwesome = true
-    fmt.Println(flag, isAwesome)
+	fmt.Println(flag, isAwesome)
 }

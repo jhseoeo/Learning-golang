@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	var slice1 []int     // nil
+	var slice1 []int     // nil (zero-value of slice)
 	var slice2 = []int{} // zero-length slice, not nil
 	fmt.Println(slice1 == nil, slice2 == nil)
 
@@ -18,11 +18,11 @@ func main() {
 
 	fmt.Println("---------------------------")
 
-	e[2] = 1 // Slicing overwraps storage
-	fmt.Println(x, y, z, d, e)
+	e[2] = 1                   // Slicing overwraps storage
+	fmt.Println(x, y, z, d, e) // value of x, z, d, e is changed
 
 	fmt.Println(cap(x), cap(y), cap(z), cap(d), cap(e))
-	y = append(y, 30)
+	y = append(y, 30) // appending an elements into y changes the mapped value of other slices, but not changes their length
 	// z = append(z, 30) // try this also
 
 	fmt.Println(x, y, z, d, e) // it's too confusing :(
@@ -56,7 +56,7 @@ func main() {
 	fmt.Println("---------------------------")
 
 	ax := [...]int{1, 2, 3, 4}
-	ay := ax[:2]
+	ay := ax[:2] // slicing array
 	az := ax[2:]
 	ax[0] = 10
 	fmt.Println(ax, ay, az)
