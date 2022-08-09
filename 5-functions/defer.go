@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"os"
 )
 
@@ -16,7 +15,7 @@ func example() int {
 
 // ----------------------------------------------------------------------------------
 
-// common pattern that allocates a resource to also return a closure that cleans up the resource 
+// common pattern that allocates a resource to also return a closure that cleans up the resource
 func getFile(name string) (*os.File, func(), error) {
 	file, err := os.Open(name)
 	if err != nil {
@@ -24,19 +23,30 @@ func getFile(name string) (*os.File, func(), error) {
 	} else { // it returns resource and a closure that cleans up the resource
 		return file, func() { file.Close() }, nil
 	}
-} 
+}
 
 // ----------------------------------------------------------------------------------
 
 func main() {
 	n := example()
 	fmt.Println(n)
-	
+
 	fmt.Println("---------------------------")
 
-	_, closer, err := getFile(os.Args[1])
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer closer() // releases the resource by .using defer and closer function
+	// _, closer, err := getFile(os.Args[1])
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+	// defer closer() // releases the resource by .using defer and closer function
+
+	fmt.Println("---------------------------")
+
+	j := 2
+
+	defer func(i int) {
+		fmt.Println(i)
+	}(j)
+
+	j++
+	fmt.Println(j)
 }

@@ -10,7 +10,7 @@ type person struct {
 func modifyFails(i int, s string, p person) { // all the parameters are passed by value(copied), not referenced or aliased
 	i *= 2
 	s = "goodbye"
-	p.name = "Bob" // even for the struct, cannot change the origin value by modifying parameters. 
+	p.name = "Bob" // even for the struct, cannot change the origin value by modifying parameters.
 }
 
 // ----------------------------------------------------------------------------------
@@ -22,7 +22,7 @@ func modifyMap(m map[int]string) {
 	m[3] = "goodbye"
 }
 
-func modifySlice(s []int){
+func modifySlice(s []int) {
 	// we can modify any element in the slice, but can't lengthen the slice
 	for k, v := range s {
 		s[k] = v * 2
@@ -39,7 +39,7 @@ func main() {
 
 	fmt.Println("---------------------------")
 
-	m := map[int]string {
+	m := map[int]string{
 		1: "first",
 		2: "second",
 	}
