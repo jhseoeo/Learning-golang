@@ -8,7 +8,7 @@ type Person struct {
 	PetName string
 }
 
-var owners = map[string]pet.Pet{
+var pets = map[string]pet.Pet{
 	"Fluffy": {"Fluffy", "Cat", "Bob"},
 	"Rex":    {"Rex", "Dog", "Julia"},
 }
